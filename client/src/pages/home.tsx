@@ -4,14 +4,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import BillCard from "@/components/bill-card";
 import SearchBar from "@/components/search-bar";
-import RecentBills from "@/components/recent-bills";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
 import type { BillService } from "@shared/schema";
-import { Zap, Flame, Smartphone, Wifi, Droplets, Settings, Star, Shield, Clock } from "lucide-react";
+import { Zap, Flame, Smartphone, Wifi, Droplets, Settings, Star, Shield } from "lucide-react";
 
 const categoryIcons = {
   electricity: Zap,
@@ -88,76 +82,39 @@ export default function Home() {
 
         {/* Main Content */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col lg:flex-row gap-8">
-            
-            {/* Main Services Grid */}
-            <div className="flex-1">
-              {isLoading ? (
-                <div className="text-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-                  <p className="mt-4 text-muted-foreground">Loading services...</p>
-                </div>
-              ) : (
-                Object.entries(groupedServices).map(([category, categoryServices]) => {
-                  const IconComponent = categoryIcons[category as keyof typeof categoryIcons];
-                  return (
-                    <section key={category} className="mb-12">
-                      <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center">
-                        <IconComponent className="text-accent mr-3 h-6 w-6" />
-                        {category.charAt(0).toUpperCase() + category.slice(1)} Bills
-                      </h2>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {categoryServices.map((service) => (
-                          <BillCard key={service.id} service={service} />
-                        ))}
-                      </div>
-                    </section>
-                  );
-                })
-              )}
-            </div>
-
-            {/* Sidebar */}
-            <aside className="lg:w-80">
-              {/* AdSense Sidebar */}
-              <div className="adsense-placeholder h-64 rounded-lg mb-6" data-testid="adsense-sidebar">
-                AdSense Sidebar (300x250)
-              </div>
-
-              <RecentBills />
-
-              {/* Bill Reminders */}
-              <Card className="mb-6">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
-                    <Clock className="text-accent mr-2 h-5 w-5" />
-                    Bill Reminders
-                  </h3>
-                  <p className="text-muted-foreground mb-4">Set up reminders for your monthly bills</p>
-                  <Button className="w-full" data-testid="button-set-reminder">
-                    Set Reminder
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Help Section */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
-                    <Settings className="text-secondary mr-2 h-5 w-5" />
-                    Need Help?
-                  </h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-check">How to check bills?</a></li>
-                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-not-found">Bill not found?</a></li>
-                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-payment">Payment methods</a></li>
-                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-support">Contact support</a></li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </aside>
-
+          {/* AdSense Banner Below Hero */}
+          <div className="adsense-placeholder h-24 rounded-lg mb-12" data-testid="adsense-content-top">
+            AdSense Banner (728x90)
           </div>
+          
+          {isLoading ? (
+            <div className="text-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+              <p className="mt-4 text-muted-foreground">Loading services...</p>
+            </div>
+          ) : (
+            Object.entries(groupedServices).map(([category, categoryServices]) => {
+              const IconComponent = categoryIcons[category as keyof typeof categoryIcons];
+              return (
+                <section key={category} className="mb-12">
+                  <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center">
+                    <IconComponent className="text-accent mr-3 h-6 w-6" />
+                    {category.charAt(0).toUpperCase() + category.slice(1)} Bills
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {categoryServices.map((service) => (
+                      <BillCard key={service.id} service={service} />
+                    ))}
+                  </div>
+                  
+                  {/* AdSense Between Categories */}
+                  <div className="adsense-placeholder h-20 rounded-lg mt-8 mb-4" data-testid={`adsense-${category}`}>
+                    AdSense Banner (728x90)
+                  </div>
+                </section>
+              );
+            })
+          )}
         </main>
 
         {/* Features Section */}
