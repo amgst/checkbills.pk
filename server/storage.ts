@@ -110,7 +110,7 @@ export class MemStorage implements IStorage {
         provider: "Sui Northern Gas Pipelines Limited",
         icon: "fas fa-fire",
         description: "Check your SNGPL gas bill on official website",
-        apiEndpoint: "https://www.sngpl.com.pk/bill-inquiry/",
+        apiEndpoint: "https://suigasbill.pk/",
         isActive: true,
       },
       {
@@ -119,7 +119,7 @@ export class MemStorage implements IStorage {
         provider: "Sui Southern Gas Company Limited",
         icon: "fas fa-fire",
         description: "Check your SSGCL gas bill on official website",
-        apiEndpoint: "https://www.ssgcl.com.pk/billing-info/",
+        apiEndpoint: "https://www.ssgc.com.pk/web/",
         isActive: true,
       },
       // Mobile Services
@@ -129,7 +129,7 @@ export class MemStorage implements IStorage {
         provider: "Jazz Pakistan",
         icon: "fas fa-mobile-alt",
         description: "Check your Jazz mobile bill on official website",
-        apiEndpoint: "https://www.jazz.com.pk/myaccount/bill-payment",
+        apiEndpoint: "https://jazz.com.pk/self-service",
         isActive: true,
       },
       {
@@ -138,7 +138,7 @@ export class MemStorage implements IStorage {
         provider: "Telenor Pakistan",
         icon: "fas fa-mobile-alt",
         description: "Check your Telenor mobile bill on official website",
-        apiEndpoint: "https://www.telenor.com.pk/mytelenor",
+        apiEndpoint: "https://www.telenor.com.pk/",
         isActive: true,
       },
       {
@@ -146,8 +146,8 @@ export class MemStorage implements IStorage {
         category: "mobile",
         provider: "Zong 4G Pakistan",
         icon: "fas fa-mobile-alt",
-        description: "Check your Zong mobile bill online instantly",
-        apiEndpoint: "/api/bills/zong",
+        description: "Check your Zong mobile bill on official website",
+        apiEndpoint: "https://www.zong.com.pk/",
         isActive: true,
       },
       {
@@ -155,8 +155,8 @@ export class MemStorage implements IStorage {
         category: "mobile",
         provider: "Ufone Pakistan",
         icon: "fas fa-mobile-alt",
-        description: "Check your Ufone mobile bill online instantly",
-        apiEndpoint: "/api/bills/ufone",
+        description: "Check your Ufone mobile bill on official website",
+        apiEndpoint: "https://www.ufone.com/selfcare/app/login/login.php",
         isActive: true,
       },
       // Internet Services
@@ -166,7 +166,7 @@ export class MemStorage implements IStorage {
         provider: "Pakistan Telecommunication Company Limited",
         icon: "fas fa-wifi",
         description: "Check your PTCL internet bill on official website",
-        apiEndpoint: "https://ptcl.com.pk/myaccount",
+        apiEndpoint: "https://ptcl.com.pk/customer/publicbill_payment",
         isActive: true,
       },
       // Water Services
@@ -175,8 +175,8 @@ export class MemStorage implements IStorage {
         category: "water",
         provider: "Water and Sanitation Agency Lahore",
         icon: "fas fa-tint",
-        description: "Check your WASA Lahore water bill online instantly",
-        apiEndpoint: "/api/bills/wasa-lahore",
+        description: "Check your WASA Lahore water bill on official website",
+        apiEndpoint: "https://wasa.punjab.gov.pk/billing",
         isActive: true,
       },
       {
