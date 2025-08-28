@@ -79,21 +79,12 @@ export default function Home() {
             </p>
             
             <SearchBar />
-
-            {/* AdSense Banner Top */}
-            <div className="adsense-placeholder h-24 rounded-lg mb-8 mt-8" data-testid="adsense-hero-banner">
-              AdSense Banner (728x90)
-            </div>
           </div>
         </section>
 
         {/* Main Content */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* AdSense Banner Below Hero */}
-          <div className="adsense-placeholder h-24 rounded-lg mb-12" data-testid="adsense-content-top">
-            AdSense Banner (728x90)
-          </div>
-          
+
           {Object.entries(groupedServices).map(([category, categoryServices]) => {
               const IconComponent = categoryIcons[category as keyof typeof categoryIcons];
               return (
@@ -107,11 +98,7 @@ export default function Home() {
                       <BillCard key={service.id} service={service} />
                     ))}
                   </div>
-                  
-                  {/* AdSense Between Categories */}
-                  <div className="adsense-placeholder h-20 rounded-lg mt-8 mb-4" data-testid={`adsense-${category}`}>
-                    AdSense Banner (728x90)
-                  </div>
+
                 </section>
               );
             })}

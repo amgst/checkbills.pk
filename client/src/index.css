@@ -93,21 +93,7 @@
   }
 }
 
-.adsense-placeholder {
-  background: hsl(210, 40%, 96%);
-  border: 2px dashed hsl(214, 32%, 91%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: hsl(215, 16%, 47%);
-  font-size: 0.875rem;
-  transition: all 0.2s ease;
-}
 
-.adsense-placeholder:hover {
-  background: hsl(210, 40%, 94%);
-  border-color: hsl(214, 32%, 85%);
-}
 
 .gradient-hero {
   background: linear-gradient(135deg, 

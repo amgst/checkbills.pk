@@ -288,10 +288,7 @@ export default function BillCheck() {
             </div>
           </div>
 
-          {/* AdSense Banner */}
-          <div className="adsense-placeholder h-24 rounded-lg mt-8" data-testid="adsense-bill-check">
-            AdSense Banner (728x90)
-          </div>
+          
         </main>
 
         <Footer />
