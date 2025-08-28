@@ -1,0 +1,205 @@
+import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import BillCard from "@/components/bill-card";
+import SearchBar from "@/components/search-bar";
+import RecentBills from "@/components/recent-bills";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import type { BillService } from "@shared/schema";
+import { Zap, Flame, Smartphone, Wifi, Droplets, Settings, Star, Shield, Clock } from "lucide-react";
+
+const categoryIcons = {
+  electricity: Zap,
+  gas: Flame,
+  mobile: Smartphone,
+  internet: Wifi,
+  water: Droplets,
+  other: Settings,
+};
+
+export default function Home() {
+  const { data: services = [], isLoading } = useQuery<BillService[]>({
+    queryKey: ["/api/services"],
+  });
+
+  const groupedServices = services.reduce((acc, service) => {
+    if (!acc[service.category]) {
+      acc[service.category] = [];
+    }
+    acc[service.category].push(service);
+    return acc;
+  }, {} as Record<string, BillService[]>);
+
+  return (
+    <>
+      <Helmet>
+        <title>BillCheck.pk - Check All Pakistani Bills Online | Electricity, Gas, Water & More</title>
+        <meta name="description" content="Check all Pakistani utility bills online at BillCheck.pk. Check LESCO, FESCO, MEPCO, IESCO, GEPCO, HESCO bills, gas bills (SNGPL, SSGCL), water bills, mobile bills and more instantly." />
+        <meta name="keywords" content="pakistan bill check, electricity bill, gas bill, water bill, mobile bill, LESCO, FESCO, MEPCO, IESCO, GEPCO, HESCO, SEPCO, TESCO, SNGPL, SSGCL, PTCL bill" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="BillCheck.pk - Check All Pakistani Bills Online" />
+        <meta property="og:description" content="Check electricity, gas, water, mobile and other utility bills for Pakistan instantly" />
+        <meta property="og:url" content="https://billcheck.pk" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://billcheck.pk" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "BillCheck.pk",
+            "url": "https://billcheck.pk",
+            "description": "Check all Pakistani utility bills online including electricity, gas, water, mobile and more",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://billcheck.pk/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <div className="min-h-screen bg-background">
+        <Header />
+        
+        {/* Hero Section */}
+        <section className="gradient-hero py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Check All Pakistani Bills <span className="text-primary">Online</span>
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Check electricity, gas, water, mobile, internet and other utility bills instantly. All major Pakistani service providers supported.
+            </p>
+            
+            <SearchBar />
+
+            {/* AdSense Banner Top */}
+            <div className="adsense-placeholder h-24 rounded-lg mb-8 mt-8" data-testid="adsense-hero-banner">
+              AdSense Banner (728x90)
+            </div>
+          </div>
+        </section>
+
+        {/* Main Content */}
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col lg:flex-row gap-8">
+            
+            {/* Main Services Grid */}
+            <div className="flex-1">
+              {isLoading ? (
+                <div className="text-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+                  <p className="mt-4 text-muted-foreground">Loading services...</p>
+                </div>
+              ) : (
+                Object.entries(groupedServices).map(([category, categoryServices]) => {
+                  const IconComponent = categoryIcons[category as keyof typeof categoryIcons];
+                  return (
+                    <section key={category} className="mb-12">
+                      <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center">
+                        <IconComponent className="text-accent mr-3 h-6 w-6" />
+                        {category.charAt(0).toUpperCase() + category.slice(1)} Bills
+                      </h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {categoryServices.map((service) => (
+                          <BillCard key={service.id} service={service} />
+                        ))}
+                      </div>
+                    </section>
+                  );
+                })
+              )}
+            </div>
+
+            {/* Sidebar */}
+            <aside className="lg:w-80">
+              {/* AdSense Sidebar */}
+              <div className="adsense-placeholder h-64 rounded-lg mb-6" data-testid="adsense-sidebar">
+                AdSense Sidebar (300x250)
+              </div>
+
+              <RecentBills />
+
+              {/* Bill Reminders */}
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
+                    <Clock className="text-accent mr-2 h-5 w-5" />
+                    Bill Reminders
+                  </h3>
+                  <p className="text-muted-foreground mb-4">Set up reminders for your monthly bills</p>
+                  <Button className="w-full" data-testid="button-set-reminder">
+                    Set Reminder
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Help Section */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
+                    <Settings className="text-secondary mr-2 h-5 w-5" />
+                    Need Help?
+                  </h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-check">How to check bills?</a></li>
+                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-not-found">Bill not found?</a></li>
+                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-payment">Payment methods</a></li>
+                    <li><a href="#" className="hover:text-primary transition-colors" data-testid="link-help-support">Contact support</a></li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </aside>
+
+          </div>
+        </main>
+
+        {/* Features Section */}
+        <section className="bg-muted py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Why Choose BillCheck.pk?</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Fast, secure, and reliable bill checking service for all Pakistani utilities
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="text-primary h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Lightning Fast</h3>
+                <p className="text-muted-foreground">Get your bill status in seconds with our optimized platform</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="text-primary h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">100% Secure</h3>
+                <p className="text-muted-foreground">Your personal information is always protected and encrypted</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Smartphone className="text-primary h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Mobile Friendly</h3>
+                <p className="text-muted-foreground">Check bills on any device, anywhere, anytime</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </>
+  );
+}
