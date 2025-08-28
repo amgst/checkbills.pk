@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 import type { BillService } from "@shared/schema";
 
 interface BillCardProps {
@@ -11,7 +12,14 @@ export default function BillCard({ service }: BillCardProps) {
   const [, setLocation] = useLocation();
 
   const handleCheckBill = () => {
-    setLocation(`/check/${service.id}`);
+    // Check if it's an external URL (starts with http)
+    if (service.apiEndpoint?.startsWith('http')) {
+      // Open official website in new tab
+      window.open(service.apiEndpoint, '_blank');
+    } else {
+      // Use internal page for other services
+      setLocation(`/check/${service.id}`);
+    }
   };
 
   return (
@@ -24,10 +32,17 @@ export default function BillCard({ service }: BillCardProps) {
         <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
         <Button 
           onClick={handleCheckBill}
-          className="w-full group-hover:bg-primary/90 transition-colors"
+          className="w-full group-hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
           data-testid={`button-check-${service.name.toLowerCase()}`}
         >
-          Check Bill
+          {service.apiEndpoint?.startsWith('http') ? (
+            <>
+              Check on Official Site
+              <ExternalLink className="h-4 w-4" />
+            </>
+          ) : (
+            'Check Bill'
+          )}
         </Button>
       </CardContent>
     </Card>
