@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { billCheckRequestSchema, type BillCheckRequest } from "@shared/schema";
+import { LescoScraper } from "./services/lesco-scraper";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -53,24 +54,54 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ error: "Service not found" });
       }
 
-      // Simulate bill checking (in real implementation, this would call actual APIs)
-      // For demonstration, we'll return mock data based on service type
+      // Check if this is a LESCO bill - use real scraping
       let billData = null;
       let status = "not_found";
 
-      // Mock successful bill check for demonstration
-      if (billNumber.length >= 10) {
-        status = "found";
-        billData = {
-          billNumber,
-          customerReference,
-          customerName: "Sample Customer",
-          billingMonth: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
-          amount: Math.floor(Math.random() * 10000) + 1000,
-          dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString(),
-          status: "unpaid",
-          serviceProvider: service.provider,
-        };
+      if (service.name === "LESCO") {
+        console.log(`Checking LESCO bill: ${billNumber}`);
+        try {
+          const lescoResult = await LescoScraper.checkBill(billNumber, customerReference);
+          
+          if (lescoResult.success) {
+            status = "found";
+            billData = {
+              billNumber: lescoResult.billNumber,
+              customerReference: lescoResult.customerReference,
+              customerName: lescoResult.customerName || "LESCO Customer",
+              billingMonth: lescoResult.billingMonth || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+              amount: lescoResult.amount || 0,
+              dueDate: lescoResult.dueDate || new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toLocaleDateString('en-GB'),
+              issueDate: lescoResult.issueDate,
+              status: lescoResult.status === 'unpaid' ? 'unpaid' : 'paid',
+              serviceProvider: lescoResult.serviceProvider,
+              address: lescoResult.address,
+              units: lescoResult.units,
+              tariff: lescoResult.tariff,
+            };
+          } else {
+            status = "not_found";
+            console.log('LESCO bill not found:', lescoResult.error);
+          }
+        } catch (error) {
+          console.error('LESCO scraping failed:', error);
+          status = "error";
+        }
+      } else {
+        // For other services, use mock data for now
+        if (billNumber.length >= 10) {
+          status = "found";
+          billData = {
+            billNumber,
+            customerReference,
+            customerName: "Sample Customer",
+            billingMonth: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+            amount: Math.floor(Math.random() * 10000) + 1000,
+            dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString(),
+            status: "unpaid",
+            serviceProvider: service.provider,
+          };
+        }
       }
 
       // Store bill check record
