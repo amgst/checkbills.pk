@@ -4,7 +4,7 @@ import Footer from "@/components/footer";
 import BillCard from "@/components/bill-card";
 import SearchBar from "@/components/search-bar";
 import { billServices } from "@/data/services";
-import { Zap, Flame, Smartphone, Wifi, Droplets, Settings, Star, Shield } from "lucide-react";
+import { Zap, Flame, Smartphone, Wifi, Droplets, Settings, Star, Shield, Tv, GraduationCap, Building2 } from "lucide-react";
 
 interface BillService {
   id: string;
@@ -15,11 +15,15 @@ interface BillService {
 }
 
 const categoryIcons = {
-  electricity: Zap,
-  gas: Flame,
-  mobile: Smartphone,
-  internet: Wifi,
-  water: Droplets,
+  Electricity: Zap,
+  Gas: Flame,
+  Mobile: Smartphone,
+  Internet: Wifi,
+  Water: Droplets,
+  "Cable TV": Tv,
+  Insurance: Shield,
+  Education: GraduationCap,
+  Banking: Building2,
   other: Settings,
 };
 
