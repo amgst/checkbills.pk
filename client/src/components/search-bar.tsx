@@ -1,38 +1,38 @@
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { useLocation } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import type { BillService } from "@shared/schema";
+import { billServices } from "@/data/services";
 import { Search } from "lucide-react";
+
+interface BillService {
+  id: string;
+  name: string;
+  category: string;
+  icon: string;
+  url: string;
+}
 
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [, setLocation] = useLocation();
 
-  const { data: services = [] } = useQuery<BillService[]>({
-    queryKey: ["/api/services"],
-  });
-
-  const filteredServices = services.filter(
+  const filteredServices = billServices.filter(
     service =>
       service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
       service.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleSearch = () => {
     if (filteredServices.length > 0) {
-      setLocation(`/check/${filteredServices[0].id}`);
+      window.open(filteredServices[0].url, '_blank');
       setShowSuggestions(false);
       setSearchQuery("");
     }
   };
 
   const handleServiceSelect = (service: BillService) => {
-    setLocation(`/check/${service.id}`);
+    window.open(service.url, '_blank');
     setShowSuggestions(false);
     setSearchQuery("");
   };

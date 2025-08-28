@@ -1,11 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import BillCard from "@/components/bill-card";
 import SearchBar from "@/components/search-bar";
-import type { BillService } from "@shared/schema";
+import { billServices } from "@/data/services";
 import { Zap, Flame, Smartphone, Wifi, Droplets, Settings, Star, Shield } from "lucide-react";
+
+interface BillService {
+  id: string;
+  name: string;
+  category: string;
+  icon: string;
+  url: string;
+}
 
 const categoryIcons = {
   electricity: Zap,
@@ -17,11 +24,7 @@ const categoryIcons = {
 };
 
 export default function Home() {
-  const { data: services = [], isLoading } = useQuery<BillService[]>({
-    queryKey: ["/api/services"],
-  });
-
-  const groupedServices = services.reduce((acc, service) => {
+  const groupedServices = billServices.reduce((acc, service) => {
     if (!acc[service.category]) {
       acc[service.category] = [];
     }
@@ -87,13 +90,7 @@ export default function Home() {
             AdSense Banner (728x90)
           </div>
           
-          {isLoading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-              <p className="mt-4 text-muted-foreground">Loading services...</p>
-            </div>
-          ) : (
-            Object.entries(groupedServices).map(([category, categoryServices]) => {
+          {Object.entries(groupedServices).map(([category, categoryServices]) => {
               const IconComponent = categoryIcons[category as keyof typeof categoryIcons];
               return (
                 <section key={category} className="mb-12">
@@ -113,8 +110,7 @@ export default function Home() {
                   </div>
                 </section>
               );
-            })
-          )}
+            })}
         </main>
 
         {/* Features Section */}
