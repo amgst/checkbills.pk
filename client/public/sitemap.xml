@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://checkbills-pk.vercel.app/</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -10,61 +10,61 @@
   <!-- Electricity Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/k-electric</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/lesco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/gepco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/fesco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/mepco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/pesco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/qesco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/sepco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/tesco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/hesco</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -72,13 +72,13 @@
   <!-- Gas Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/ssgc</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/sngpl</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -86,37 +86,37 @@
   <!-- Internet Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/ptcl</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/nayatel</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/stormfiber</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/cybernet</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/worldcall</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/optix</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -124,25 +124,25 @@
   <!-- Mobile Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/jazz</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/telenor</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/zong</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/ufone</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -150,25 +150,25 @@
   <!-- Water Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/kwsb</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/wasa-lahore</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/wasa-faisalabad</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/wasa-rawalpindi</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -176,13 +176,13 @@
   <!-- Cable TV Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/ktn</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/hum-tv</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -190,19 +190,19 @@
   <!-- Insurance Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/efu</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/jubilee-insurance</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/adamjee-insurance</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -210,19 +210,19 @@
   <!-- Education Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/aku</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/lums</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/iba-karachi</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -230,31 +230,31 @@
   <!-- Banking Bills -->
   <url>
     <loc>https://checkbills-pk.vercel.app/check/hbl</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/ubl</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/mcb</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/allied-bank</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://checkbills-pk.vercel.app/check/nbp</loc>
-    <lastmod>2024-01-28</lastmod>
+    <lastmod>2025-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
